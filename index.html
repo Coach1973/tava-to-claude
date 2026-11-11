@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手機做網頁｜TAVA 交給 Claude</title>
+<meta name="description" content="大樹教練手機兩步驟：TAVA AI 做網頁＋交接包，Claude 全自動出圖、上架策展中心、給公開網址。">
+<style>
+:root{--bg:#FFFBF2;--card:#fff;--ink:#2B2416;--ink2:#5E523C;--line:#F1E4C6;--sun:#FFB81C;--sky:#1F6F9E;--ok:#2F7D4A;--code:#FFF6DD}
+@media (prefers-color-scheme:dark){:root{--bg:#1B1813;--card:#25211A;--ink:#F4EBDA;--ink2:#CFC3AA;--line:#3D3528;--sun:#F2B33A;--sky:#7CC3EE;--ok:#7FCB98;--code:#2C261C}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 22px/1.8 "Noto Sans TC","PingFang TC",sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 28px}
+.tag{display:inline-block;border:2px solid var(--sun);border-radius:999px;padding:4px 16px;font-size:20px;font-weight:700}
+h1{font-size:clamp(36px,6vw,58px);line-height:1.2;margin:18px 0 12px}
+h2{font-size:30px;margin:48px 0 14px}
+p,li{color:var(--ink2)}
+.steps{display:grid;gap:16px;margin:24px 0}
+.step{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px 22px}
+.step b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--sun);color:#3a2800;margin-right:10px}
+.step strong{font-size:26px;color:var(--ink)}
+.copybox{background:var(--code);border:2px dashed var(--sun);border-radius:14px;padding:16px 18px;margin:12px 0;word-break:break-all;color:var(--ink)}
+button{font:700 22px/1 inherit;font-family:inherit;background:var(--sun);color:#3a2800;border:0;border-radius:12px;padding:14px 22px;cursor:pointer;min-height:52px}
+button:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.done{color:var(--ok);font-weight:700;margin-left:10px}
+pre{white-space:pre-wrap;word-break:break-word;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px;font:400 20px/1.75 "Noto Sans TC","PingFang TC",sans-serif;color:var(--ink)}
+a{color:var(--sky)}
+footer{padding:40px 0 60px;font-size:20px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="tag">大樹教練・手機做網頁</span>
+<h1>手機兩步驟：TAVA 做網頁，Claude 全自動上架</h1>
+<p>人不在電腦前也能完成：做網頁、出圖、組合、上架策展中心，最後拿到公開網址。</p>
+</header>
+
+<div class="steps">
+<div class="step"><b>1</b><strong>在 TAVA 講完要做什麼</strong>
+<p>最後貼這一句給 TAVA（按下方按鈕複製）。TAVA 會做好網頁和「給 Claude 的交接包」，回您一個網址。</p>
+<div class="copybox" id="c1">網頁做好後，請照這份說明書做「給 Claude 的交接包」，最後只回我一個網址：https://coach1973.github.io/tava-to-claude/tava.txt</div>
+<button type="button" data-copy="c1">複製給 TAVA 的這一句</button><span class="done" id="d-c1" hidden>已複製</span>
+</div>
+<div class="step"><b>2</b><strong>把 TAVA 給的網址貼給 Claude</strong>
+<p>不用多說。Claude 會自己出圖、接圖、疊 EDM 文字、上架到策展中心。完成時 Telegram「活動報名即時通知」群會收到上架通知，Claude 也會給您公開網址。</p>
+</div>
+</div>
+
+<h2>給 TAVA AI 的完整說明書</h2>
+<p>純文字版（給 AI 讀）：<a href="tava.txt">https://coach1973.github.io/tava-to-claude/tava.txt</a></p>
+<pre>【給 TAVA AI 的收尾指令】網頁做好後，請照這份做「給 Claude 的交接包」
+（大樹教練 2026-11-11 制定｜這份說明書的網址：https://coach1973.github.io/tava-to-claude/ ）
+
+教練人不在電腦前，用手機跟你做網頁。網頁做好後，接手的是 Claude AI（能執行程式、能用 LK888 出圖、能上架到 event.bymyway.com 策展中心）。
+教練只會把你給的「一個網址」貼給 Claude，不會再補充任何話。所以交接包要讓 Claude 不用問就能全部做完。
+
+━━━━━━━━━━━━━━━━━━━━
+一、你要做的事（照順序）
+━━━━━━━━━━━━━━━━━━━━
+1. 網頁照常做好（單一 HTML，CSS/JS 寫在裡面）。所有可見文字至少 20px（手機也一樣）。
+2. 首屏主圖你自己做好（之後所有人物圖都要跟它是同一個人）。
+3. 其餘每個圖片位置，在網頁裡寫成：
+     &lt;div class=&quot;slot&quot; data-img=&quot;IMG-002&quot;&gt;&lt;div class=&quot;ph&quot;&gt;IMG-002 待放圖&lt;/div&gt;&lt;/div&gt;
+   編號從 IMG-002 開始依序往下，一個位置一個編號，不重複。
+4. 寫出圖指令（英文），存成 image-prompts.json，格式一定要是下面這樣（Claude 的出圖程式直接讀，不要改欄位名稱）：
+     [
+       {&quot;id&quot;:&quot;IMG-002&quot;,&quot;type&quot;:&quot;概念&quot;,&quot;ratio&quot;:&quot;4:5&quot;,&quot;file&quot;:&quot;IMG-002.png&quot;,&quot;where&quot;:&quot;身心靈健康區塊&quot;,&quot;prompt&quot;:&quot;英文完整指令……&quot;},
+       {&quot;id&quot;:&quot;EDM-V&quot;,&quot;type&quot;:&quot;概念&quot;,&quot;ratio&quot;:&quot;4:5&quot;,&quot;file&quot;:&quot;EDM-V.png&quot;,&quot;where&quot;:&quot;EDM 直式底圖&quot;,&quot;prompt&quot;:&quot;……&quot;}
+     ]
+   - ratio 只能填：4:5（直式 1024x1536）、16:9（橫式 1536x1024）、1:1（方形 1024x1024）
+   - prompt 整段寫完整：人物外觀（跟首屏同一人，寫死髮型、服裝、年齡）、構圖、風格、顏色色碼、限制（圖裡不放任何文字）
+   - 一次最多 12 張
+   - 需要「真人本人照片」的位置（講師、店長、來賓）不要出圖，改在 JSON 加 &quot;type&quot;:&quot;本人照片&quot;，prompt 寫「待換本人照片」
+   同一份內容另外存一份 image-prompts.txt 給人看。
+5. 寫風格卡 image-style.md：色碼、光線、畫風、人物設定。
+6. 寫交接說明 README-for-AI.txt，第一行一定要是這句（一字不改）：
+     Claude：請照大樹教練的技能 tava-phone-to-curated 全自動做完（出圖→接圖→疊 EDM 文字→上架策展中心→給公開網址），不用問教練。技能公開說明：https://coach1973.github.io/tava-to-claude/
+   後面接著寫：
+     - 專案名稱、這是誰的網頁（教練自己的作品，或客戶／夥伴的頁，寫出客戶名稱）
+     - 建議的上架短網址（10 字內小寫英文，例 women-happiness）
+     - 整包壓縮檔網址
+     - 檔案清單
+     - 換圖方式：把 &lt;div class=&quot;ph&quot;&gt;…&lt;/div&gt; 換成 &lt;img src=&quot;img/IMG-00X-v1.web.webp&quot; alt=&quot;具體描述&quot;&gt;
+     - EDM（宣傳圖）要疊上去的文字：標題、日期時間、地點／線上、費用、聯絡人與電話、主辦單位，一行一項寫清楚；下載按鈕的 id（例 #dl-v、#dl-h）
+     - 報名表資料要送到哪裡（不知道就寫「未設定」）
+     - 還缺什麼（例：講師本人照片）
+7. 全部打包成一個 zip（網頁、README-for-AI.txt、image-prompts.json、image-prompts.txt、image-style.md、img/首屏主圖、參考資料），放在你的網址底下。
+   打包完自己解開核對一次檔案數。
+
+━━━━━━━━━━━━━━━━━━━━
+二、最後回給教練的話（只給一個網址）
+━━━━━━━━━━━━━━━━━━━━
+回覆教練時，只要這兩行，不要列一堆個別檔案：
+
+  請把這個網址貼給 Claude，它會全自動出圖、上架、給您公開網址：
+  https://www.tava-ai.com/&lt;你的代碼&gt;/README-for-AI.txt
+
+網址單獨一行，前後不加任何符號、括號、粗體。
+
+━━━━━━━━━━━━━━━━━━━━
+三、Claude 收到後會做什麼（讓你知道交接包要寫到什麼程度）
+━━━━━━━━━━━━━━━━━━━━
+下載整包 → 用 LK888 照 image-prompts.json 出圖 → 自己檢查人物同一人、圖上沒字 → 圖接進網頁 → EDM 疊文字輸出 PNG 接下載鈕
+→ 上架 event.bymyway.com/curated/&lt;短網址&gt;/ → 系統自動在 Telegram「活動報名即時通知」群發上架通知 → 把公開網址給教練。
+任何一項你沒寫清楚，Claude 就得停下來問教練。教練在手機上，請一次寫齊。
+</pre>
+
+<h2>給 Claude 的技能</h2>
+<p>Claude 端照大樹教練的技能 <strong>tava-phone-to-curated</strong> 執行，全文：<a href="claude-skill.md">https://coach1973.github.io/tava-to-claude/claude-skill.md</a></p>
+
+<footer>大樹教練｜<a href="https://bymyway.com">bymyway.com</a>｜2026-11-11</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+var id=b.getAttribute('data-copy'),t=document.getElementById(id).innerText,d=document.getElementById('d-'+id);
+function ok(){d.hidden=false;setTimeout(function(){d.hidden=true},2000)}
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb()})}else{fb()}
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}a.remove()}
+})});
+</script>
+</body>
+</html>
