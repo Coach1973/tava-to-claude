@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>團隊邀請函｜預約流程示範</title>
+<style>
+:root{--bg:#fbf6ec;--ink:#2b2118;--mute:#6b5a48;--amber:#e8a33d;--amber-deep:#9a5b00;--ok:#1f7a4d;--card:#fff;--line:#e6d8bf}
+@media(prefers-color-scheme:dark){:root{--bg:#1d1812;--ink:#f3e9d8;--mute:#b9a98f;--amber:#e8a33d;--amber-deep:#f0b95c;--ok:#5fd09a;--card:#2a231a;--line:#463b2b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:22px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+.demo{background:var(--amber);color:#1a1206;border-radius:12px;padding:12px 16px;font-size:20px;font-weight:700}
+h1{font-size:32px;line-height:1.35;margin:24px 0 8px}
+p{margin:8px 0}.mute{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:20px 0}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+button,.slot{font:inherit;min-height:56px;padding:0 22px;border-radius:999px;border:2px solid var(--amber);background:transparent;color:var(--ink);cursor:pointer}
+button.main{background:var(--amber);color:#1a1206;font-weight:700}
+.slot.on{background:var(--amber);color:#1a1206;font-weight:700}
+.slots{display:flex;flex-wrap:wrap;gap:10px}
+h3{margin:20px 0 6px;font-size:24px}
+input,textarea{font:inherit;width:100%;min-height:56px;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin:6px 0 12px}
+.ai{color:var(--ok);font-weight:700;margin:12px 0}
+.hide{display:none}
+.result{border:2px solid var(--ok);border-radius:16px;padding:20px;margin-top:16px}
+a.zoom{display:inline-flex;align-items:center;min-height:56px;padding:0 24px;border-radius:999px;background:var(--ok);color:#fff;text-decoration:none;font-weight:700;margin:8px 0}
+</style>
+</head>
+<body>
+<main>
+<div class="demo">這是流程示範頁：空檔是真的、直接從教練行程表讀取；按「送出」只會演示畫面，不會真的預約。</div>
+<h1>○○ 老師，您好<br>邀請您給我們 30 分鐘</h1>
+<p class="mute">聊聊團隊目前的成果，以及一起合作的機會。（正式網頁的視覺由 TAVA／MUSE 設計，這頁只看預約流程。）</p>
+<div class="btns"><button class="main" id="yes">我想進一步了解（預約 30 分鐘）</button><button id="no">現階段先婉拒</button></div>
+
+<section class="card hide" id="meet">
+  <h3>請挑一個大樹教練有空的時間</h3>
+  <div class="slots" id="slots"><span class="mute">讀取教練行程表中…</span></div>
+  <button id="own" style="margin-top:12px;min-height:48px">以上時間都不方便，我自己提供時間</button>
+  <div class="hide" id="ownbox"><p class="mute">請填日期與時間：</p><input id="od" type="date"><input id="ot" type="time" step="1800"></div>
+  <p class="ai hide" id="ai">🤖 AI 智慧媒合大樹教練預約時間表｜媒合結果：此時段大樹教練有空 ✅</p>
+  <h3>您的資料</h3>
+  <input id="nm" placeholder="姓名（必填）"><input id="ct" placeholder="LINE ID 或手機（必填）"><textarea id="nt" rows="2" placeholder="想先讓教練知道的事（選填）"></textarea>
+  <button class="main" id="go">送出</button>
+  <div class="result hide" id="res"></div>
+</section>
+
+<section class="card hide" id="decline">
+  <h3>謝謝您撥空回覆！</h3><p>明年我們再一起。</p>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);let pick=null,own=false;
+$('yes').onclick=()=>{$('meet').classList.remove('hide');$('decline').classList.add('hide');$('meet').scrollIntoView({behavior:'smooth'})};
+$('no').onclick=()=>{$('decline').classList.remove('hide');$('meet').classList.add('hide');$('decline').scrollIntoView({behavior:'smooth'})};
+$('own').onclick=()=>{own=true;pick=null;$('ownbox').classList.remove('hide');$('ai').classList.add('hide');document.querySelectorAll('.slot').forEach(b=>b.classList.remove('on'))};
+fetch('https://event.bymyway.com/api/team-invite/slots').then(r=>r.json()).then(d=>{
+  const box=$('slots');box.innerHTML='';
+  if(!d.ok||!d.slots.length){box.innerHTML='<span class="mute">目前讀不到空檔，請用下方「自己提供時間」</span>';return}
+  d.slots.forEach(s=>{const b=document.createElement('button');b.className='slot';b.textContent=s.label;
+    b.onclick=()=>{pick=s;own=false;$('ownbox').classList.add('hide');document.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('ai').classList.remove('hide')};box.appendChild(b)})
+}).catch(()=>{$('slots').innerHTML='<span class="mute">目前讀不到空檔，請用下方「自己提供時間」</span>'});
+$('go').onclick=()=>{
+  if(!$('nm').value.trim()||!$('ct').value.trim()){alert('請填姓名與 LINE ID／手機');return}
+  const r=$('res');r.classList.remove('hide');
+  if(pick&&!own){
+    r.innerHTML='<h3 style="margin-top:0">✅ 預約成功（示範）</h3><p>'+pick.label+'</p><p>屆時請直接用這個 Zoom 會議室上線：</p><a class="zoom" href="https://us02web.zoom.us/j/83168799858?pwd=9P1b4M8YcTbJwNduvDk7ZPllsePaOV.1">進入 Zoom 會議室</a><p class="mute">會議 ID：831 6879 9858　密碼：88888</p>';
+  }else{
+    r.innerHTML='<h3 style="margin-top:0">📨 已收到（示範）</h3><p>已收到您可以進一步聊合作的時間，大樹教練會盡快透過 LINE 回覆您是否排定。</p>';
+  }
+  r.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>
