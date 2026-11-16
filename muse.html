@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUSE 一行指令｜大樹教練網頁製作</title>
+<style>
+  :root{--bg:#fbf6ec;--ink:#2b2118;--sub:#6b5a48;--main:#a8322a;--line:#e3d5bf;--card:#fffdf8}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:22px/1.7 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;overflow-x:clip}
+  main{max-width:860px;margin:0 auto;padding:32px 16px 48px}
+  h1{font-size:36px;line-height:1.3;margin:0 0 8px}
+  h2{font-size:26px;margin:36px 0 12px;color:var(--main)}
+  p,li{font-size:22px}
+  .sub{color:var(--sub)}
+  .box{background:var(--card);border:2px solid var(--main);border-radius:16px;padding:20px}
+  .cmd{font-size:22px;white-space:pre-wrap;word-break:break-all;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:14px;margin:0 0 14px}
+  button{font:inherit;font-size:22px;background:var(--main);color:#fff;border:0;border-radius:999px;padding:12px 28px;cursor:pointer}
+  button:active{transform:scale(.98)}
+  ol{padding-left:1.4em}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .card b{color:var(--main)}
+  a{color:var(--main)}
+  footer{margin-top:48px;border-top:1px solid var(--line);padding-top:16px;font-size:20px;color:var(--sub)}
+  footer a{display:block;font-size:20px}
+</style>
+</head>
+<body>
+<main>
+  <h1>MUSE 一行指令</h1>
+  <p class="sub">個人品牌網頁、課程行銷網頁都用同一行。MUSE 會自己判斷是哪一種，照 SOP 做、14 個特效全上、圖自己出完，最後交一個 ZIP。</p>
+
+  <h2>① 複製這一行，後面接這次的資料</h2>
+  <div class="box">
+    <p class="cmd" id="cmd">請完整讀完這份總指令再照做（自己判斷是個人品牌網頁還是課程行銷網頁，圖全部出完一起打包成 ZIP）：https://coach1973.github.io/tava-to-claude/muse.txt ｜這次的資料：</p>
+    <button type="button" id="copy">複製指令</button>
+    <span id="ok" class="sub" hidden>　已複製 ✓</span>
+  </div>
+  <p class="sub">「這次的資料：」後面貼上人名＋連結，或課程的日期、地點、費用、講師就好；資料越多越準。</p>
+
+  <h2>② 教練只要做這兩步</h2>
+  <ol>
+    <li>MUSE 做完 → 下載它給的 ZIP</li>
+    <li>把 ZIP 上傳到策展中心 → 結束</li>
+  </ol>
+
+  <h2>MUSE 怎麼分辨兩種網頁</h2>
+  <div class="two">
+    <div class="card"><b>A 個人品牌網頁</b><br>資料主要是一個人：姓名、頭銜、學經歷、官網或社群，沒有要報名的場次。</div>
+    <div class="card"><b>B 課程行銷網頁</b><br>資料裡有日期、時間、地點、費用、名額、報名其中兩項以上。兩種都像時，有場次就做 B。</div>
+  </div>
+  <p class="sub">MUSE 回覆的第一行會寫「判定：A／B（理由）」，判斷錯了直接跟它說「改做 A」或「改做 B」。</p>
+
+  <h2>跟以前不一樣的地方</h2>
+  <ul>
+    <li>以前：TAVA 做網頁 → LK888 另外出圖 → 再找 AI 接圖。現在：MUSE 一次做完，ZIP 裡圖已經放好。</li>
+    <li>14 個特效（<a href="https://event.bymyway.com/curated/rs-demo/" target="_blank" rel="noopener">示範頁</a>）每一招都寫好用在哪個區塊；只有影片類兩招在做不出影片時可以省略，要說明原因。</li>
+    <li>MUSE 交付時會附「14 招使用表」和「請教練確認的資料」。</li>
+  </ul>
+
+  <footer>
+    <a href="https://www.tava-ai.com/" target="_blank" rel="noopener">本網頁由 TAVA AI 製作</a>
+    <a href="https://www.bymyway.com/" target="_blank" rel="noopener">出品人 大樹教練</a>
+    <a href="https://event.bymyway.com/curated/rongtree/" target="_blank" rel="noopener">友善連結 榮樹下</a>
+    <a href="https://event.bymyway.com/curated/skyteam/" target="_blank" rel="noopener">顧問師天團・人才軍火庫</a>
+  </footer>
+</main>
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var t = document.getElementById('cmd').textContent;
+  var done = function () { var ok = document.getElementById('ok'); ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 2000); };
+  if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, fallback); } else { fallback(); }
+  function fallback() { var a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (e) {} a.remove(); }
+});
+</script>
+</body>
+</html>
