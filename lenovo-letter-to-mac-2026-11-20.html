@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>給蘋果電腦的 Muse：以後修改不要再讓教練一張一張按同意了</title>
+<style>
+  body{font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8;color:#222;max-width:760px;margin:0 auto;padding:28px 20px 60px}
+  h1{font-size:26px;line-height:1.4;margin:0 0 8px}
+  h2{font-size:20px;margin:36px 0 8px;border-top:1px solid #ddd;padding-top:20px}
+  p{margin:10px 0}
+  .meta{color:#666;font-size:14px;line-height:1.9;border:1px solid #ddd;border-radius:8px;padding:14px 18px;background:#fafafa}
+  .lead{font-size:18px;background:#fff8e6;border-left:4px solid #d4a017;padding:12px 16px}
+  .quote{background:#f2f7f2;border-left:4px solid #4a7c59;padding:12px 16px}
+  table{border-collapse:collapse;width:100%;margin:12px 0}
+  th,td{border:1px solid #ccc;padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f5f5f5}
+  ol,ul{padding-left:24px}
+  li{margin:6px 0}
+  .note{color:#666;font-size:14px}
+  .coach{border:1px dashed #999;border-radius:8px;padding:14px 18px;background:#f9f9f9}
+  footer{margin-top:40px;color:#666;font-size:14px}
+</style>
+</head>
+<body>
+<p class="note">聯想電腦 Muse 寫給 Mac 團隊的交接信 · 2026 年 11 月 20 日 · 請軍師讀完後照此分工執行</p>
+<h1>給蘋果電腦的 Muse：以後修改不要再讓教練一張一張按同意了</h1>
+
+<p class="lead">結論先講：新頁製作由聯想這邊一氣呵成做好、推上線；已經上線的頁要修改，聯想只寫修改指令表，教練轉交給你或小龍蝦，你們在本機一次做完。教練不用再坐在電腦前等核准卡。</p>
+
+<div class="meta">
+收信人：Mac 上的 Muse（軍師），副本給小龍蝦參考<br>
+寄信人：聯想電腦上的 Muse（教練的思考夥伴）<br>
+主旨：製作與修改分工定案、交接格式、頁尾署名規則<br>
+背景：教練 2026 年 11 月 20 日凌晨親口定案，請我寫成信一次講清楚
+</div>
+
+<p class="quote">教練要我轉達的一句話：「你不能做的事情，小龍蝦可以做；你不能做的事情，軍師可以做。寫完叫他們做就好了。」這封信就是照這個邏輯寫的。把該由 Mac 側做的事一次交代清楚，不要再讓教練當傳聲筒，也不要讓他半夜按按鈕。</p>
+
+<h2>1. 為什麼會有這封信</h2>
+<p>聯想這邊的工具限制很明確：我每推一次 GitHub，就會跳一張核准卡，要教練親手按。寫入類的卡 30 分鐘沒按就逾時作廢，遠端完全沒變動，整件事要重來。2026 年 11 月 20 日凌晨改 18 頁頁尾，就是活生生的例子。一開始一頁一頁推、一頁一頁等，教練被拖到凌晨三、四點。後來才改成先把全部檔案備好、卡連續跳出來一次按完，但本質問題還在：只要是我推，就要他按。</p>
+<p>Mac 那邊不一樣。教練說得很清楚：他用 Claude Code，講什麼就馬上改；跟小龍蝦講要做什麼，小龍蝦也馬上改完，沒有核准卡這個問題。所以解法不是叫教練按快一點，是把「修改」這件事交到沒有核准卡的那一邊去做。</p>
+
+<h2>2. 新分工：製作歸聯想，修改歸 Mac</h2>
+<table>
+<tr><th>工作</th><th>誰做</th><th>怎麼做</th></tr>
+<tr><td>新頁製作</td><td>聯想 Muse</td><td>照原來的做法：查證、做圖、做完整頁、驗收、推上線、給教練網址。一氣呵成。</td></tr>
+<tr><td>已上線頁修改</td><td>Mac 團隊（軍師或小龍蝦）</td><td>聯想不自己推。我寫一份修改指令表給教練，教練丟給你們，你們在本機一次改完、推完、驗完。</td></tr>
+<tr><td>大檔案推送</td><td>Mac 團隊</td><td>檔案太大、聯想連接器推不上去時（例如 10 MB 以上的 index.html），由你們用本機 git 推。</td></tr>
+</table>
+<p>請你以後收到教練轉來的修改指令表，就直接照表執行，不要再叫教練回聯想這邊一頁一頁推，也不要把修改拆成很多次、每次都丟一個問題回來問他。有不清楚的地方，一次列成清單問完就好。</p>
+
+<h2>3. 交給 Mac 側的格式：指令網址 + ZIP</h2>
+<p>教練特別提醒我學 TAVA AI 的做法。那套方式他已經用得很順：出圖或做事的指令，寫成一個網址。要出幾張圖，就寫幾張圖的指令在同一頁裡。教練把網址丟給小龍蝦，小龍蝦打開就一氣呵成做完。檔案打成 ZIP 一起丟。壓縮檔丟給小龍蝦，他解開就直接做，不用教練在中間搬來搬去。</p>
+<p>純文字小改，用修改指令表就夠。哪一頁、改哪一行、改成什麼字、改完要驗什麼，寫清楚即可，不用另外做網址。</p>
+<p>所以聯想這邊之後交給 Mac 的東西，原則上就兩種形式：<strong>指令網址 + ZIP</strong>，或<strong>一張修改指令表</strong>。你收到後照著做完、回報結果就好。如果需要聯想先備好檔案或先查證，我會在指令表裡寫明已經備到哪一步、檔案放在哪裡。</p>
+<p>補充：多頁一起改的時候，請先把所有頁的檔案全部準備好，再一次連續做完、一次驗收。不要做一頁、等一次、再做一頁。這條是教練 11 月 20 日凌晨親口糾正聯想這邊的教訓，Mac 側也請照辦。</p>
+
+<h2>4. 頁尾署名規則：只有 Muse 或 TAVA</h2>
+<p>這件事教練已經定案，請你務必記住，不要再寫錯：</p>
+<ul>
+<li>製作網頁的只有兩種：Muse 或 TAVA。Claude AI 不負責製作網頁，不要把任何一頁的製作者寫成 Claude AI。</li>
+<li>判斷法很簡單：如果確定不是 Muse 做的，那就一定是 TAVA 做的。不要再用 commit 共同作者之類的線索去猜成第三種人，那是我這邊犯過的錯。</li>
+<li><strong>余瑞銘頁維持 TAVA。</strong>余瑞銘的個人品牌頁（event.bymyway.com/curated/yu-ruiming/）不是聯想 Muse 做的，所以是 TAVA 做的，頁尾維持「本網頁由 TAVA AI 製作」並保留原連結，不要改。</li>
+<li><strong>其餘 18 頁是 Muse 做的。</strong>聯想已在 11 月 20 日全部改完上線：第一行改為「本網頁由 Muse AI 製作」，純文字、不連連結；另外三個連結（出品人、榮樹下、顧問師天團）一字不動。邱偉晃頁原本沒有署名行，已補上 Muse 那一行。</li>
+<li>以後你在 Mac 側經手任何一頁的修改，動到頁尾時就照這條檢查：Muse 做的寫 Muse，TAVA 做的寫 TAVA，不確定的先問，不要統一寫成同一家。</li>
+</ul>
+
+<h2>5. 修改時請一起守住的幾條鐵律</h2>
+<ul>
+<li><strong>待確認、從缺，絕對不寫上公開頁面。</strong>不要寫「本頁附註」「媒體牆從缺」「照片尚待補」「學歷待確認」這類話。查不到的區塊直接整個省略、不留痕跡；要回報的缺漏只寫在給教練的交付訊息裡。</li>
+<li><strong>設計基調陽光明亮。</strong>首屏不要深色陰暗底，標題不要厚重宋體，用乾淨現代黑體粗字；重點數字要放大、有跳動效果。</li>
+<li><strong>圖片規格照舊。</strong>個人品牌頁 AI 插畫最少 8 張、畫風要精緻；圖片壓到 100 KB 上下，頁面要快。插畫人物要貼近本人，貼不近就不要畫人。</li>
+<li><strong>FB / IG 抓本人照片，走教練本機 Chrome。</strong>不要用雲端瀏覽器登入、不要叫教練按安全登入卡、不要叫他接管雲端瀏覽器、不要叫他裝擴充功能。正確做法是用 Muse App 的電腦操作，在教練已登入的 Chrome 開新分頁看相片頁，右鍵另存到 /Volumes/953-SSD/下載，再傳回工作區。只動自己開的分頁、唯讀不互動、逐張確認是本人，拿不到一張清楚本人照不交件。這一步聯想尚未實測有電腦操作功能，所以抓好照片再交聯想做頁，分工照舊。</li>
+</ul>
+
+<h2>6. 還在等 Mac 側處理的兩件事</h2>
+<p><strong>第一，余瑞銘頁有一份改好的檔案等你本機推。</strong>那頁的媒體牆有 10 處「日期待確認」已按新鐵律清掉，改好的檔案在聯想這邊的 fixes 資料夾裡，但整頁約 11 MB，聯想的連接器推不上去。這就是典型的「修改交 Mac」案例：請你用本機 git 推上去，推完驗一下線上關鍵詞歸零即可。頁尾署名照第 4 點，維持 TAVA 不動，不要順手改掉。</p>
+<p><strong>第二，Deploy Key 請確認落地進度。</strong>教練 2026 年 11 月 19 日已定案 Deploy Key 解法，規格書由他轉交 Mac 團隊：每倉庫一把鑰匙、只開該倉庫、允許寫入、私鑰只放 Mac、不進對話不進雲端筆記；倉庫關閉 force push、不許刪分支。部署腳本只檢查白名單倉庫、分支限 main、拒絕 force push，通過才推。如果已經落地，請回報一聲；如果還沒，請照規格書做，不要改回逐次核准卡的老路。</p>
+<p>另外提醒：教練的公開交接棒（coach1973.github.io/ai-go/status.html）最後更新還停在 2026 年 10 月 1 日。教練會另外把聯想這段時間的工作成果報告交給你修整交接棒，那是另一份文件；這封信只處理分工與做法，不重複報告的內容。</p>
+
+<h2>7. 請你讀完後這樣回覆</h2>
+<ol>
+<li>回一句確認：已讀、已理解「製作歸聯想、修改歸 Mac」的新分工。</li>
+<li>確認余瑞銘頁的署名判斷（TAVA、維持不動）與 Deploy Key 的目前狀態。</li>
+<li>之後教練轉來修改指令表或指令網址 + ZIP，請直接執行、一次做完、一次回報結果；需要教練決定的事，一次列清單，不要逐項丟回來。</li>
+</ol>
+
+<p>教練的時間不該花在按同意上。他已經為核准卡熬了好幾晚，這封信就是要把這件事到此為止。謝謝你在 Mac 那邊接住修改這一棒，我們各做擅長的那一段，教練就輕鬆了。</p>
+
+<footer>
+聯想電腦上的 Muse · 教練的思考夥伴 · 2026 年 11 月 20 日<br>
+本信由教練口頭交代、聯想 Muse 整理成文。內容如與教練之後的親口指示不同，以教練親口指示為準。
+</footer>
+
+<div class="coach">
+<strong>給教練的一行話</strong><br>
+教練，你把這個網址丟給軍師讀就好，不用再解釋一次。以後要改已上線的頁，我寫指令表、你轉交，他們做完。
+</div>
+</body>
+</html>
