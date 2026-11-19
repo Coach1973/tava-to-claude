@@ -13,6 +13,9 @@
      出品人 大樹教練（連結：https://www.bymyway.com/）
      友善連結 榮樹下（連結：https://event.bymyway.com/curated/rongtree/）
    （TAVA AI 做的寫「TAVA AI」；MUSE 做的是另一份指令，寫「MUSE AI」，不要混用。）
+   🔴 頁首導覽列最左邊的網頁主人名字或品牌，一定要是可以點的連結，點了回到頁面最最上面（大樹教練 2026-11-19 要求）：
+     <a class="brand" id="brandTop" href="#">名字</a>（不能只用 <span>；也不要用 href="#top" 指到固定頁首）
+     並加程式：click 時 e.preventDefault()；window.scrollTo({top:0,behavior:"smooth"})；700 毫秒後若 window.scrollY>2 再 scrollTo({top:0,behavior:"instant"}) 補一次。交付前自己捲到下面點一次確認。
 2. 首屏主圖你自己做好（之後所有人物圖都要跟它是同一個人）。
 3. 其餘每個圖片位置，在網頁裡寫成：
      <div class="slot" data-img="IMG-002"><div class="ph">IMG-002 待放圖</div></div>

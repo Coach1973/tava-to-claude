@@ -46,6 +46,7 @@
    2. 出品人 大樹教練（連結：https://www.bymyway.com/）
    3. 友善連結 榮樹下（連結：https://event.bymyway.com/curated/rongtree/）
    4. 顧問師天團・人才軍火庫（連結：https://event.bymyway.com/curated/skyteam/）
+   🔴 頁首最左邊的名字／品牌一定要是可點連結 <a class="brand" id="brandTop" href="#">，點了用 JS 捲到最上面（e.preventDefault()＋scrollTo({top:0,behavior:"smooth"})，700 毫秒後 scrollY>2 再用 instant 補一次）。交付前自己點一次確認。
 
 ════════════════════════════════════
 四、回覆區規格（最重要，照做）
