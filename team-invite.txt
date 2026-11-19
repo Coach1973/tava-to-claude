@@ -41,7 +41,8 @@
 4. 時間線：11 月底集結 → 12 月中旬高峰會
 5. 回覆區（核心，規格見第四節）
 6. 固定頁尾（四個連結，一個都不能少）：
-   1. 本網頁由 TAVA AI 製作（連結：https://www.tava-ai.com/）
+   🔴 你是 MUSE 就寫「本網頁由 MUSE AI 製作」（純文字，不連到別處）；是 TAVA AI 做的才寫「本網頁由 TAVA AI 製作」（連結：https://www.tava-ai.com/）。前三行（製作者／出品人 大樹教練／友善連結 榮樹下）缺一行就不合格，交付前捲到最底下親眼確認。
+   1. 本網頁由 MUSE AI 製作
    2. 出品人 大樹教練（連結：https://www.bymyway.com/）
    3. 友善連結 榮樹下（連結：https://event.bymyway.com/curated/rongtree/）
    4. 顧問師天團・人才軍火庫（連結：https://event.bymyway.com/curated/skyteam/）

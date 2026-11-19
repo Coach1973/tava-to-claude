@@ -8,6 +8,11 @@
 一、你要做的事（照順序）
 ━━━━━━━━━━━━━━━━━━━━
 1. 網頁照常做好（單一 HTML，CSS/JS 寫在裡面）。所有可見文字至少 20px（手機也一樣）。
+   🔴 頁面最底下的頁尾一定要有這三行（大樹教練 2026-11-19 要求，缺一行就不合格，文字照抄）：
+     本網頁由 TAVA AI 製作（連結：https://www.tava-ai.com/）
+     出品人 大樹教練（連結：https://www.bymyway.com/）
+     友善連結 榮樹下（連結：https://event.bymyway.com/curated/rongtree/）
+   （TAVA AI 做的寫「TAVA AI」；MUSE 做的是另一份指令，寫「MUSE AI」，不要混用。）
 2. 首屏主圖你自己做好（之後所有人物圖都要跟它是同一個人）。
 3. 其餘每個圖片位置，在網頁裡寫成：
      <div class="slot" data-img="IMG-002"><div class="ph">IMG-002 待放圖</div></div>
