@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>給軍師：邀請卡／EDM 一鍵出圖 SOP 部署（2026-11-24）</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f7f5ef; color: #222; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; line-height: 1.9; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 22px 80px; }
+  h1 { font-size: 26px; line-height: 1.4; margin: 0 0 6px; }
+  .meta { color: #777; font-size: 14px; margin: 0 0 28px; }
+  h2 { font-size: 20px; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e8b23a; }
+  p { margin: 0 0 14px; }
+  ol, ul { margin: 0 0 14px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  code { background: #eee9db; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+  pre { background: #1e1e1e; color: #d6e8b8; border-radius: 8px; padding: 16px 18px; overflow-x: auto; font-size: 13px; line-height: 1.7; }
+  .filebox { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 16px 20px; margin: 0 0 14px; }
+  .filebox a { color: #1a5fb4; word-break: break-all; }
+  .warn { background: #fff3cd; border: 1px solid #e8b23a; border-radius: 10px; padding: 16px 20px; margin: 0 0 14px; }
+  .done { background: #e8f5e9; border: 1px solid #81c784; border-radius: 10px; padding: 16px 20px; margin: 0 0 14px; }
+  .small { color: #777; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>給軍師：邀請卡／EDM 一鍵出圖 SOP，請部署給小龍蝦、巴哈、孔大哥的 agent</h1>
+  <p class="meta">聯想版 Muse 寫於 2026-11-24 凌晨｜教練已同意部署（2026-11-24 02:04，三個都要）</p>
+
+  <h2>一、這是什麼</h2>
+  <p>教練問：為什麼產業鏈只要說「牙醫」兩個字就能出漂亮的圖，邀請卡卻要寫一堆囉嗦指令，小龍蝦還畫得很醜？</p>
+  <p>原因查過了（我親自讀過 <code>scripts/generate_industry_chain.py</code> 和 <code>knowledges/SOP_產業鏈.md</code>）：囉嗦沒有消失，是早就寫進產業鏈腳本裡了——固定範本、20 個節點檢查、不合格不扣點。所以解法跟產業鏈一樣：邀請卡也寫一支固定範本加腳本，教練以後只要給主題加欄位。</p>
+  <p>這包就是照產業鏈同一套做法寫的：固定範本、三種風格、互動一次問完、檢查不合格不扣點、<code>--dry-run</code> 先測不扣點。SOP 文件和腳本都在下面。</p>
+
+  <h2>二、檔案（都在這個共用倉庫裡）</h2>
+  <div class="filebox">
+    <p><strong>1. SOP 文件：</strong><br>
+    <a href="https://raw.githubusercontent.com/Coach1973/tava-to-claude/main/xiaolongxia-invitation-sop/SOP_邀請卡_EDM.md">SOP_邀請卡_EDM.md</a><br>
+    <span class="small">路徑：<code>xiaolongxia-invitation-sop/SOP_邀請卡_EDM.md</code></span></p>
+    <p><strong>2. 出圖腳本：</strong><br>
+    <a href="https://raw.githubusercontent.com/Coach1973/tava-to-claude/main/xiaolongxia-invitation-sop/generate_invitation.py">generate_invitation.py</a><br>
+    <span class="small">路徑：<code>xiaolongxia-invitation-sop/generate_invitation.py</code></span></p>
+  </div>
+  <p>三種固定風格：A 喜慶金紅（週年慶、開幕）、B 沉穩深藍金（講座、商務、BNI）、C 清新手繪（社團、親子、公益，與產業鏈同一畫風）。互動流程是教練說「做一張邀請卡」，小龍蝦一次問完風格三選一加必填欄位，教練回一次之後不再問，直接跑腳本。</p>
+
+  <h2>三、部署步驟</h2>
+  <ol>
+    <li><strong>腳本放共用位置：</strong>把 <code>generate_invitation.py</code> 放到 <code>scripts/</code>（<code>dashu-coach-ai-lessons</code>，跟 <code>generate_industry_chain.py</code> 同目錄）。腳本是共用的，放一份就好，三個 agent 都跑同一支。</li>
+    <li><strong>小龍蝦：</strong>SOP 裝成 <code>~/.openclaw/agents/main/agent/workshop-skills/invitation-prompt/SKILL.md</code>（照產業鏈那份 <code>industry-chain-prompt/SKILL.md</code> 的位置放），也要放進小龍蝦每次都會讀到的路由表，不要只放在長文件裡等它自己找到。</li>
+    <li><strong>巴哈（peipei）：</strong>同一份 SOP 與腳本，裝到 peipei 自己的位置（<code>agents/peipei/</code>），路徑按實際情況。腳本不用再複製一份，跑共用的那支。</li>
+    <li><strong>孔大哥的 agent：</strong>請軍師先確認孔大哥有沒有自己的 agent、指令檔在哪裡。有的話，同一套裝（SOP 裝一份到它的位置，腳本跑共用的那支）。沒有的話，回報一聲就好，不要自己假設。</li>
+  </ol>
+
+  <h2>四、測試步驟（照順序，不要跳）</h2>
+  <ol>
+    <li>先跑 <code>--dry-run</code>：只檢查欄位、印出組好的圖片描述，不呼叫 LK888、不扣點。確認三種風格的描述都組得出來、缺欄位／英文字／主標題太長都會擋下。</li>
+    <li>再真出一張：B 風格、bossread 講座當題目（主標題「高手都在用的行銷策略」），親眼驗收繁體中文與版面無誤。</li>
+    <li>到群組實測一張，確認小龍蝦真的走腳本出圖。</li>
+  </ol>
+
+  <div class="warn">
+    <strong>⚠️ 2026-10-22 巴哈海報 SOP 的教訓，不要重犯：</strong>那次只改了巴哈的檔案，巴哈完全沒讀，22 秒回覆、零個工具呼叫，重複舊的錯誤說法。原因是群組對話一直是同一場，改過的規則不會重新載入。所以裝完之後，要對每個 agent「正在跑的那場」發話，驗證它真的會跑腳本，不只確認它「聽懂」。
+  </div>
+
+  <h2>五、不要動的東西</h2>
+  <ul>
+    <li>產業鏈 SOP 與 <code>generate_industry_chain.py</code> 完全不動。</li>
+    <li>聯想版 Muse（我）的出圖方式不變：教練 2026-11-15 已定案，我這邊的品牌網頁圖片由我自己生成，不走 LK888。這包只給小龍蝦、巴哈、孔大哥的 agent 用。</li>
+  </ul>
+
+  <div class="done">
+    <strong>回報：</strong>裝好之後請回報：三個 agent 各裝好了沒有、測試結果如何。如果孔大哥那邊沒有 agent，也請說一聲。回報寫到共用倉庫或直接回給教練都可以。
+  </div>
+
+  <p class="small">聯想版 Muse｜2026-11-24</p>
+</div>
+</body>
+</html>
